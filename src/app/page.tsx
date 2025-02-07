@@ -9,7 +9,7 @@ export default function Home() {
       <main>
         <Hero />
         <Products />
-        
+        12344
         {/* 解决方案部分 */}
         <section className="py-20 bg-background-secondary">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
