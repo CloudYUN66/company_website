@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-gray-100 min-h-screen bg-tech-pattern;
+    background-size: 100% 100%, 50px 50px;
+  }
+}
+
+@layer components {
+  .primary-button {
+    @apply bg-primary hover:bg-primary-dark text-black font-bold py-2 px-4 rounded;
+  }
+
+  .secondary-button {
+    @apply bg-background-secondary hover:bg-background text-primary font-bold py-2 px-4 rounded border border-primary;
+  }
+
+  .tech-container {
+    @apply relative border border-accent/20 bg-background-secondary/50 backdrop-blur-sm rounded-lg p-6;
+  }
+
+  .tech-border {
+    @apply relative before:absolute before:inset-0 before:p-[1px] before:bg-gradient-to-r before:from-primary/50 before:via-accent before:to-primary/50 before:rounded-lg before:-z-10;
+  }
+
+  .tech-button {
+    @apply relative px-6 py-2 bg-background-secondary hover:bg-background-tertiary text-primary 
+           border border-primary/20 rounded transition-all duration-300
+           hover:border-primary hover:shadow-neon-orange;
+  }
+
+  .tech-button-accent {
+    @apply relative px-6 py-2 bg-background-secondary hover:bg-background-tertiary text-accent 
+           border border-accent/20 rounded transition-all duration-300
+           hover:border-accent hover:shadow-neon-blue;
+  }
+
+  .tech-heading {
+    @apply text-4xl font-bold bg-gradient-to-r from-primary via-accent to-primary 
+           bg-clip-text text-transparent;
+  }
+
+  .tech-card {
+    @apply tech-container hover:shadow-neon-orange transition-all duration-300;
+  }
+
+  .tech-input {
+    @apply bg-background-tertiary border border-accent/20 rounded px-4 py-2
+           focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent
+           text-gray-100;
+  }
+}
+
+:root {
+  --primary-color: #FF8C00;
+  --background-color: #000000;
+}
+
+/* 使用更强制性的选择器 */
+html, body {
+  background-color: var(--background-color) !important;
+  color: var(--primary-color) !important;
+  min-height: 100vh;
+}
+
+/* 确保所有文本都使用新的颜色 */
+h1, h2, h3, h4, h5, h6, p, span, div {
+  color: var(--primary-color);
+}
+
+/* 添加一些基础样式覆盖 */
+@layer base {
+  body {
+    @apply bg-background text-primary;
+  }
+}
+
+/* 添加科技风格的动画效果 */
+@keyframes glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+} 
