@@ -1,38 +1,46 @@
-import Hero from '@/components/Hero'
 import Navbar from '@/components/Navbar'
-import Products from '@/components/Products'
 import Banner from '@/components/Banner'
 import ServiceOffering from '@/components/ServiceOffering'
-import StatsSection from '@/components/StatsSection'
+import DataStats from '@/components/DataStats'
 
 export default function Home() {
+  const cases = [
+    {
+      industry: '政府机构',
+      title: '某省政务服务平台',
+      description: '打造全省一体化政务服务平台，实现"一网通办"'
+    },
+    {
+      industry: '金融行业',
+      title: '某大型商业银行',
+      description: '构建新一代分布式核心业务系统，提升金融服务能力'
+    },
+    {
+      industry: '医疗健康',
+      title: '某三甲医院集团',
+      description: '实现医疗服务智慧化升级，打造智慧医院标杆'
+    }
+  ]
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow">
         <Banner />
+        <DataStats />
         <ServiceOffering />
-        <StatsSection />
-        {/* Hero Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Hero />
-        </div>
 
-        {/* Products Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Products />
-        </div>
-
-        {/* 解决方案部分 */}
+        {/* 客户案例部分 */}
         <div className="bg-background-secondary">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <h2 className="tech-heading text-center mb-12">行业解决方案</h2>
+            <h2 className="tech-heading text-center mb-12">客户案例</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {['制造业', '金融行业', '医疗健康'].map((industry, index) => (
+              {cases.map((item, index) => (
                 <div key={index} className="tech-container hover:shadow-neon-blue">
-                  <h3 className="text-xl text-accent mb-4">{industry}</h3>
-                  <p className="text-gray-400 mb-4">为{industry}提供专业的数字化转型解决方案</p>
-                  <button className="tech-button-accent">了解更多</button>
+                  <div className="text-sm text-accent mb-2">{item.industry}</div>
+                  <h3 className="text-xl font-bold text-primary mb-4">{item.title}</h3>
+                  <p className="text-gray-600 mb-6 text-sm">{item.description}</p>
+                  <button className="tech-button-accent">查看详情</button>
                 </div>
               ))}
             </div>

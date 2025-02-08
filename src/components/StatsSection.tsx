@@ -35,16 +35,9 @@ export default function StatsSection() {
   ]
 
   return (
-    <section className="relative py-20 overflow-hidden [&_*]:!text-white">
-      {/* 背景图案 */}
-      <div className="absolute inset-0 bg-primary/90">
-        <div className="absolute inset-0" 
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundSize: '60px 60px'
-          }}
-        />
-      </div>
+    <section className="relative py-20 overflow-hidden">
+      {/* 浅蓝色背景 */}
+      <div className="absolute inset-0 bg-[#E6F3FF]" />
 
       {/* 内容 */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,17 +45,21 @@ export default function StatsSection() {
           {stats.map((stat, index) => (
             <div 
               key={index} 
-              className="text-center flex-1 min-w-[150px]"
+              className="text-center flex-1 min-w-[150px] relative"
             >
               <div className="text-3xl lg:text-4xl font-bold mb-2 flex items-start justify-center">
-                <span style={{ color: '#FFFFFF' }}>{stat.number}</span>
+                <span>{stat.number}</span>
                 <span className="text-lg lg:text-xl font-medium translate-y-1">
                   {stat.suffix}
                 </span>
               </div>
-              <div className="text-xs lg:text-sm font-medium tracking-wider opacity-80">
+              <div className="text-xs lg:text-sm font-medium tracking-wider">
                 {stat.label}
               </div>
+              {/* 添加分割线，最后一个元素不添加 */}
+              {index !== stats.length - 1 && (
+                <div className="hidden lg:block absolute right-[-1rem] top-1/2 -translate-y-1/2 w-[1px] h-12 bg-white/30" />
+              )}
             </div>
           ))}
         </div>
