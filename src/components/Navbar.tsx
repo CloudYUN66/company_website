@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Logo from './Logo'
 
 export default function Navbar() {
   return (
@@ -6,22 +7,20 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-primary">企业名称</span>
-          </Link>
+          <Logo />
 
           {/* 导航链接 */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/products" className="text-gray-300 hover:text-primary transition-colors">
+            <Link href="/products" className="text-text hover:text-primary transition-colors">
               产品与服务
             </Link>
-            <Link href="/solutions" className="text-gray-300 hover:text-primary transition-colors">
+            <Link href="/solutions" className="text-text hover:text-primary transition-colors">
               解决方案
             </Link>
-            <Link href="/about" className="text-gray-300 hover:text-primary transition-colors">
+            <Link href="/about" className="text-text hover:text-primary transition-colors">
               关于我们
             </Link>
-            <Link href="/contact" className="text-gray-300 hover:text-primary transition-colors">
+            <Link href="/contact" className="text-text hover:text-primary transition-colors">
               联系我们
             </Link>
           </div>

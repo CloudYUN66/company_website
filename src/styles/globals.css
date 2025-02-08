@@ -4,8 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-background text-gray-100 min-h-screen bg-tech-pattern;
-    background-size: 100% 100%, 50px 50px;
+    @apply bg-background text-text min-h-screen;
   }
 }
 
@@ -19,7 +18,7 @@
   }
 
   .tech-container {
-    @apply relative border border-accent/20 bg-background-secondary/50 backdrop-blur-sm rounded-lg p-6;
+    @apply relative border border-accent/20 bg-background-tertiary/90 backdrop-blur-sm rounded-lg p-6 shadow-lg;
   }
 
   .tech-border {
@@ -27,15 +26,15 @@
   }
 
   .tech-button {
-    @apply relative px-6 py-2 bg-background-secondary hover:bg-background-tertiary text-primary 
+    @apply relative px-6 py-2 bg-primary hover:bg-primary-dark text-white
            border border-primary/20 rounded transition-all duration-300
-           hover:border-primary hover:shadow-neon-orange;
+           hover:border-primary hover:shadow-lg;
   }
 
   .tech-button-accent {
-    @apply relative px-6 py-2 bg-background-secondary hover:bg-background-tertiary text-accent 
+    @apply relative px-6 py-2 bg-accent hover:bg-accent-dark text-white
            border border-accent/20 rounded transition-all duration-300
-           hover:border-accent hover:shadow-neon-blue;
+           hover:border-accent hover:shadow-lg;
   }
 
   .tech-heading {

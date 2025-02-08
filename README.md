@@ -34,3 +34,49 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+安装：
+
+```bash
+npm install
+```
+
+运行：
+
+```bash
+npm run dev
+```
+
+部署：
+
+```bash
+npm run build
+npm run start
+```
+
+第一步写出自己的需求，然后点击提交，点击保存所有（SUBMIT ALL），如果有些命令需要执行，点击RUN，即可运行。
+
+当出现报错，或者页面显示不正常的时候，可以复制当前的报错信息，复制到右侧COMPOSER的输入框中，然后输入FIX，即可修复。
+
+遇到满意的效果界面，一定要点击左上方git按钮（树枝按钮），点击自动生成描述信息，点击提交并推送。
+
+运行前先在新建一个终端运行命令，运行命令为：
+
+```bash
+$env:Path += ";C:\Program Files\nodejs"
+```
+检测nodejs是否安装成功，运行命令为：
+
+```bash
+node -v
+```
+
+
+遇到多次无法解决的问题，可以回滚到上一次的提交，运行命令为
+
+```bash
+git checkout -- .
+```
+
+
