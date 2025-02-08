@@ -1,12 +1,14 @@
 import Hero from '@/components/Hero'
 import Navbar from '@/components/Navbar'
 import Products from '@/components/Products'
+import Banner from '@/components/Banner'
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow">
+        <Banner />
         {/* Hero Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Hero />
