@@ -72,11 +72,26 @@ $env:Path += ";C:\Program Files\nodejs"
 node -v
 ```
 
+## git 分支管理使用
+
+
 遇到多次无法解决的问题，可以回滚到上一次的提交，运行命令为
 
 ```bash
-git checkout -- .
+git checkout -b 分支名 # 创建分支并切换到该分支
+git checkout 分支名 # 切换分支
+
 ```
+暂存区有东西的时候一定要先暂存（commit ），再切换分支，否则会丢失暂存区的内容。
+主分支是main，测试分支是test-branch。
+测试分支完成部分修改后，合并到主分支，运行命令为：
+
+```bash
+git checkout main # 切换到主分支
+git merge 分支名 # 合并分支
+```
+### 合并分支并解决冲突
+
 
 
 
