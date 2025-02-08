@@ -80,13 +80,22 @@ export default function Banner() {
                       ${index === currentSlide ? 'animate-slide-up opacity-100' : 'opacity-0'}`}>
                       {image.title}
                     </h1>
-                    <div className={`inline-block px-12 py-2 
-                      bg-gradient-to-r from-primary/10 via-primary to-primary/10
-                      shadow-lg backdrop-blur-sm
+                    <p className={`text-2xl text-white font-light leading-relaxed mb-12 tracking-wider
                       ${index === currentSlide ? 'animate-slide-up-delay opacity-100' : 'opacity-0'}`}>
-                      <p className="text-2xl text-white font-light leading-relaxed">
-                        {image.subtitle}
-                      </p>
+                      {image.subtitle}
+                    </p>
+                    
+                    {/* 按钮组 */}
+                    <div className={`flex items-center justify-center space-x-6
+                      ${index === currentSlide ? 'animate-slide-up-delay-2 opacity-100' : 'opacity-0'}`}>
+                      <button className="px-8 py-3 bg-primary hover:bg-primary-dark text-white text-lg
+                        rounded transition-all duration-300 shadow-lg hover:shadow-xl">
+                        了解更多
+                      </button>
+                      <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white text-lg
+                        rounded transition-all duration-300 shadow-lg hover:shadow-xl">
+                        联系我们
+                      </button>
                     </div>
                   </div>
                 </div>

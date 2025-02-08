@@ -4,8 +4,8 @@
 
 @layer base {
   body {
-    @apply bg-background text-text min-h-screen;
-    background-image: radial-gradient(rgba(0, 102, 204, 0.1) 1px, transparent 1px);
+    @apply bg-white text-text min-h-screen;
+    background-image: radial-gradient(rgba(0, 102, 204, 0.05) 1px, transparent 1px);
     background-size: 50px 50px;
     background-position: -25px -25px;
   }

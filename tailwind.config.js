@@ -16,11 +16,9 @@ module.exports = {
           dark: '#004C99',
           light: '#3399FF',
         },
-        background: {
-          DEFAULT: '#E6F3FF', // 浅蓝色背景
-          secondary: '#F0F7FF', // 更浅的蓝色
-          tertiary: '#FFFFFF',
-        },
+        background: 'white',
+        'background-secondary': '#f8fafc',
+        'background-tertiary': '#ffffff',
         text: {
           DEFAULT: '#1A1A1A', // 主要文字颜色
           light: '#4A4A4A',
