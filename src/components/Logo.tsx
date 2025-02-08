@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -8,12 +9,17 @@ export default function Logo() {
 
   return (
     <Link href="/" className="flex items-center">
-      <img
-        src="/images/logo.png"
-        alt="企业Logo"
-        className={`h-12 w-auto object-contain ${hasError ? 'bg-white/5' : ''}`}
-        onError={() => setHasError(true)}
-      />
+      <div className="relative h-12 w-48">
+        <Image
+          src="/images/logo.png"
+          alt="企业Logo"
+          fill
+          className={`object-contain ${hasError ? 'bg-white/5' : ''}`}
+          onError={() => setHasError(true)}
+          priority
+          sizes="(max-width: 768px) 100vw, 192px"
+        />
+      </div>
     </Link>
   )
 } 

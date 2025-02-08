@@ -17,28 +17,29 @@ module.exports = {
           light: '#3399FF',
         },
         background: {
-          DEFAULT: '#E6F3FF', // 淡蓝色背景
-          secondary: '#F5F9FF',
+          DEFAULT: '#E6F3FF', // 浅蓝色背景
+          secondary: '#F0F7FF', // 更浅的蓝色
           tertiary: '#FFFFFF',
         },
         text: {
-          DEFAULT: '#1A1A1A', // 主要文字颜色（黑色）
+          DEFAULT: '#1A1A1A', // 主要文字颜色
           light: '#4A4A4A',
-          accent: '#0066CC', // 强调文字颜色（蓝色）
-        },
-        neon: {
-          orange: '#FF4D00',
-          blue: '#00F0FF',
-        },
+          accent: '#0066CC',
+        }
       },
       backgroundImage: {
-        'tech-pattern': 'linear-gradient(to bottom right, #E6F3FF 0%, #F5F9FF 100%)',
-        'grid-pattern': 'linear-gradient(#1A1A1A 1px, transparent 1px), linear-gradient(to right, #1A1A1A 1px, transparent 1px)',
+        'tech-pattern': 'radial-gradient(circle at 1px 1px, rgba(0, 102, 204, 0.1) 1px, transparent 1px)',
+        'gradient-text': 'linear-gradient(to right, #FF8C00, #0066CC)',
       },
-      boxShadow: {
-        'neon-orange': '0 0 5px #FF4D00, 0 0 20px #FF4D00',
-        'neon-blue': '0 0 5px #00F0FF, 0 0 20px #00F0FF',
+      animation: {
+        'float': 'float 3s ease-in-out infinite',
       },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        }
+      }
     },
   },
   plugins: [],

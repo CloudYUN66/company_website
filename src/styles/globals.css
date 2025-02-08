@@ -5,6 +5,9 @@
 @layer base {
   body {
     @apply bg-background text-text min-h-screen;
+    background-image: radial-gradient(rgba(0, 102, 204, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: -25px -25px;
   }
 }
 
@@ -18,7 +21,8 @@
   }
 
   .tech-container {
-    @apply relative border border-accent/20 bg-background-tertiary/90 backdrop-blur-sm rounded-lg p-6 shadow-lg;
+    @apply relative border border-accent/20 bg-background-tertiary/90 backdrop-blur-sm 
+           rounded-lg p-6 shadow-lg hover:shadow-accent/20 transition-all duration-300;
   }
 
   .tech-border {
@@ -28,18 +32,17 @@
   .tech-button {
     @apply relative px-6 py-2 bg-primary hover:bg-primary-dark text-white
            border border-primary/20 rounded transition-all duration-300
-           hover:border-primary hover:shadow-lg;
+           hover:border-primary hover:shadow-lg backdrop-blur-sm;
   }
 
   .tech-button-accent {
     @apply relative px-6 py-2 bg-accent hover:bg-accent-dark text-white
            border border-accent/20 rounded transition-all duration-300
-           hover:border-accent hover:shadow-lg;
+           hover:border-accent hover:shadow-lg backdrop-blur-sm;
   }
 
   .tech-heading {
-    @apply text-4xl font-bold bg-gradient-to-r from-primary via-accent to-primary 
-           bg-clip-text text-transparent;
+    @apply text-4xl font-bold bg-gradient-text bg-clip-text text-transparent;
   }
 
   .tech-card {
@@ -51,17 +54,23 @@
            focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent
            text-gray-100;
   }
+
+  .gradient-text {
+    @apply bg-gradient-text bg-clip-text text-transparent;
+  }
+
+  .floating-element {
+    @apply animate-float;
+  }
 }
 
 :root {
   --primary-color: #FF8C00;
-  --background-color: #000000;
+  --background-color: #E6F3FF;
 }
 
-/* 使用更强制性的选择器 */
+/* 移除强制性的颜色覆盖 */
 html, body {
-  background-color: var(--background-color) !important;
-  color: var(--primary-color) !important;
   min-height: 100vh;
 }
 
@@ -85,4 +94,23 @@ h1, h2, h3, h4, h5, h6, p, span, div {
 
 .animate-glow {
   animation: glow 2s ease-in-out infinite;
+}
+
+/* 动态粒子效果 */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(0, 102, 204, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float 3s infinite ease-in-out;
 } 
