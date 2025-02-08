@@ -5,7 +5,8 @@ const nextConfig = {
   images: {
     domains: ['localhost'],
     unoptimized: true
-  }
+  },
+  transpilePackages: ['swiper']
 }
 
 module.exports = nextConfig 

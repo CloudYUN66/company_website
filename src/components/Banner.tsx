@@ -1,145 +1,68 @@
 'use client'
+import { useEffect, useState } from 'react'
+import SwiperCore, { Autoplay, EffectFade } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { useState, useEffect } from 'react'
-import Image from 'next/image'
+// Import Swiper styles
+import 'swiper/swiper.min.css'
+import 'swiper/components/effect-fade/effect-fade.min.css'
 
-const bannerImages = [
-  {
-    src: '/images/1.jpg',
-    alt: '全球科技网络',
-    title: '政企行业ICT综合服务提供商',
-    subtitle: '为客户产业数字化转型发展提供优质的服务',
-    animation: 'animate-zoomIn'
-  },
-  {
-    src: '/images/2.jpg',
-    alt: '智能科技',
-    title: '政企行业ICT综合服务提供商',
-    subtitle: '为客户产业数字化转型发展提供优质的服务',
-    animation: 'animate-rotate3d'
-  },
-  {
-    src: '/images/3.jpg',
-    alt: '数据科技',
-    title: '政企行业ICT综合服务提供商',
-    subtitle: '为客户产业数字化转型发展提供优质的服务',
-    animation: 'animate-fadeInScale'
-  }
-]
+// Install Swiper modules
+SwiperCore.use([Autoplay, EffectFade])
 
 export default function Banner() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-
-  const handleSlideChange = (index: number) => {
-    setCurrentSlide(index)
-  }
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % bannerImages.length)
-    }, 6000)
-    return () => clearInterval(timer)
-  }, [])
-
-  const handlePrev = () => {
-    setCurrentSlide((prev) => 
-      (prev - 1 + bannerImages.length) % bannerImages.length
-    )
-  }
-
-  const handleNext = () => {
-    setCurrentSlide((prev) => 
-      (prev + 1) % bannerImages.length
-    )
-  }
+  const banners = [
+    {
+      title: '数字化转型的引领者',
+      subtitle: '为企业提供全方位的数字化解决方案',
+      image: '/images/banner1.jpg'
+    },
+    {
+      title: '技术创新的践行者',
+      subtitle: '持续创新，驱动企业数字化升级',
+      image: '/images/banner2.jpg'
+    },
+    {
+      title: '行业发展的推动者',
+      subtitle: '深耕行业，助力企业高质量发展',
+      image: '/images/banner3.jpg'
+    }
+  ]
 
   return (
-    <div className="relative w-full">
-      <div className="relative h-screen w-screen overflow-hidden">
-        {bannerImages.map((image, index) => (
-          <div
-            key={image.src}
-            className={`absolute inset-0 transition-all duration-700
-              ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
-          >
-            <div className={`relative w-full h-full
-              ${index === currentSlide ? image.animation : ''}`}>
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                className="object-cover"
-                priority={index === 0}
-                quality={100}
-                sizes="100vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent">
-                <div className="max-w-7xl mx-auto px-8 h-full flex items-center justify-center">
-                  <div className="text-white text-center max-w-4xl">
-                    <h1 className={`text-6xl font-bold mb-8 text-white drop-shadow-lg tracking-normal whitespace-nowrap
-                      ${index === currentSlide ? 'animate-slide-up opacity-100' : 'opacity-0'}`}>
-                      {image.title}
-                    </h1>
-                    <p className={`text-2xl text-white font-light leading-relaxed mb-12 tracking-wider
-                      ${index === currentSlide ? 'animate-slide-up-delay opacity-100' : 'opacity-0'}`}>
-                      {image.subtitle}
-                    </p>
-                    
-                    {/* 按钮组 */}
-                    <div className={`flex items-center justify-center space-x-6
-                      ${index === currentSlide ? 'animate-slide-up-delay-2 opacity-100' : 'opacity-0'}`}>
-                      <button className="px-8 py-3 bg-primary hover:bg-primary-dark text-white text-lg
-                        rounded transition-all duration-300 shadow-lg hover:shadow-xl">
-                        了解更多
-                      </button>
-                      <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white text-lg
-                        rounded transition-all duration-300 shadow-lg hover:shadow-xl">
-                        联系我们
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <Swiper
+      effect="fade"
+      autoplay={{
+        delay: 5000,
+        disableOnInteraction: false
+      }}
+      loop={true}
+      className="w-full h-[600px]"
+    >
+      {banners.map((banner, index) => (
+        <SwiperSlide key={index}>
+          <div className="relative w-full h-full">
+            {/* 背景图片 */}
+            <div 
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${banner.image})` }}
+            />
+            
+            {/* 渐变遮罩 */}
+            <div className="absolute inset-0 bg-black/50" />
+            
+            {/* 文字内容 */}
+            <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
+              <h1 className="text-5xl font-bold text-white mb-6 animate-fade-in">
+                {banner.title}
+              </h1>
+              <p className="text-xl text-white/90 max-w-2xl animate-fade-in-delay">
+                {banner.subtitle}
+              </p>
             </div>
           </div>
-        ))}
-
-        <button
-          type="button"
-          onClick={handlePrev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full 
-                   bg-black/20 hover:bg-black/40 text-white transition-all
-                   focus:outline-none focus:ring-2 focus:ring-white/60 cursor-pointer"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-
-        <button
-          type="button"
-          onClick={handleNext}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full 
-                   bg-black/20 hover:bg-black/40 text-white transition-all
-                   focus:outline-none focus:ring-2 focus:ring-white/60 cursor-pointer"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex space-x-4 z-30">
-          {bannerImages.map((_, index) => (
-            <button
-              key={index}
-              type="button"
-              onClick={() => handleSlideChange(index)}
-              className={`h-2 rounded-full transition-all duration-500 ease-out cursor-pointer
-                ${index === currentSlide ? 'w-12 bg-white' : 'w-2 bg-white/40 hover:bg-white/60'}`}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
   )
 } 
