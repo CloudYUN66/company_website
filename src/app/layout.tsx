@@ -6,8 +6,8 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "企业名称 - 数字化转型专家",
-  description: "为企业提供创新的技术解决方案",
+  title: "企业网站",
+  description: "企业官方网站",
 };
 
 export default function RootLayout({
@@ -18,11 +18,7 @@ export default function RootLayout({
   return (
     <html lang="zh">
       <body className={`${inter.className} antialiased`}>
-        <div className="min-h-screen bg-tech-pattern">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {children}
-          </div>
-        </div>
+        {children}
         <Footer />
       </body>
     </html>

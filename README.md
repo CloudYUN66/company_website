@@ -72,4 +72,11 @@ $env:Path += ";C:\Program Files\nodejs"
 node -v
 ```
 
+遇到多次无法解决的问题，可以回滚到上一次的提交，运行命令为
+
+```bash
+git checkout -- .
+```
+
+
 
