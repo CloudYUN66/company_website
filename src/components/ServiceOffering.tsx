@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function ServiceOffering() {
   const services = [
     {
@@ -111,13 +113,15 @@ export default function ServiceOffering() {
           ))}
         </div>
 
-        {/* 全部服务按钮 */}
+        {/* 了解更多按钮 */}
         <div className="flex justify-center mt-16">
-          <button className="px-12 py-2.5 bg-white text-gray-700 text-base font-medium tracking-widest
-            border border-gray-100
-            transition-all duration-300 hover:shadow-lg hover:scale-105">
-            全部服务
-          </button>
+          <Link href="/about">
+            <button className="px-12 py-2.5 bg-white text-gray-700 text-base font-medium tracking-widest
+              border border-gray-100
+              transition-all duration-300 hover:shadow-lg hover:scale-105">
+              了解更多
+            </button>
+          </Link>
         </div>
       </div>
     </section>

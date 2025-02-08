@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar'
 import Products from '@/components/Products'
 import Banner from '@/components/Banner'
 import ServiceOffering from '@/components/ServiceOffering'
+import StatsSection from '@/components/StatsSection'
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <main className="flex-grow">
         <Banner />
         <ServiceOffering />
+        <StatsSection />
         {/* Hero Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Hero />

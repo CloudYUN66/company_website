@@ -207,4 +207,20 @@ h1, h2, h3, h4, h5, h6, p, span, div {
 
 .animate-fadeInScale {
   animation: fadeInScale 1.2s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
 } 
